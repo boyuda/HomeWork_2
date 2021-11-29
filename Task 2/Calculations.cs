@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Task_2
 {
+    //Add internal protection modified
     class Calculations
     {
         public static List<String> WorkingWithList(String input)
@@ -11,6 +12,7 @@ namespace Task_2
             var modulusNumber = 11;
             int sumOfMultiplications = 0;
 
+            //--> START
             //Adding each digit to the list
             var stringList = new List<String>();
 
@@ -26,6 +28,17 @@ namespace Task_2
                 counter--;
                 sumOfMultiplications += multiplication;
             }
+            //--> END
+
+            //The code from --> Start to --> end could be reduced to 
+            //int sumOfMultiplications = 0;
+            //char[] buffer = input.ToCharArray();
+            //for (int i = 0; i < 9; i++)
+            //{
+            //    sum += (buffer[i] - '0') * (10 - i + 1); 
+            //}
+           
+
 
             var remainder = sumOfMultiplications % modulusNumber;
             var checkDigit = modulusNumber - remainder;
@@ -40,6 +53,8 @@ namespace Task_2
                 stringList.Add(Convert.ToString(checkDigit));
             }
 
+            //You may return just a string "input + checkDigit", assuming that checkDigit has
+            // a valid string value or 'X'.
             return stringList;
         }
     }
